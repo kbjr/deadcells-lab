@@ -1,4 +1,6 @@
 
+import { Difficulty } from './difficulties';
+
 export type PerDifficulty<T> = [ T, T, T, T, T, T ];
 
 /**
@@ -9,7 +11,7 @@ export interface CursedChestData {
 	chance: number;
 
 	/** Number of boss cells needed to access the chest */
-	cellsNeeded: number;
+	cellsNeeded: Difficulty;
 }
 
 /**
@@ -17,7 +19,7 @@ export interface CursedChestData {
  */
 export interface ExitData {
 	/** How many boss cells are required to access this exit */
-	requiresCells: number;
+	cellsNeeded: Difficulty;
 
 	/** Where does the exit spawn */
 	from: BiomeData;
@@ -599,199 +601,199 @@ export const biomes: BiomeData[] = [
 // 
 
 export const quatersToPromenade: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: prisonersQuarters,
 	to: promenadeOfTheCondemned
 };
 
 export const quatersToToxicSewers: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: prisonersQuarters,
 	to: toxicSewers
 };
 
 export const promenadeToPrisonDepths: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: promenadeOfTheCondemned,
 	to: prisonDepths
 };
 
 export const promenadeToRamparts: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: promenadeOfTheCondemned,
 	to: ramparts
 };
 
 export const promenadeToOssuary: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: promenadeOfTheCondemned,
 	to: ossuary
 };
 
 export const toxicSewerToRamparts: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: toxicSewers,
 	to: ramparts
 };
 
 export const toxicSewerToAncientSewer: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: toxicSewers,
 	to: ancientSewers
 };
 
 export const prisonDepthsToOssuary: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: prisonDepths,
 	to: ossuary
 };
 
 export const prisonDepthsToAncientSewer: ExitData = {
-	requiresCells: 1,
+	cellsNeeded: 1,
 	from: prisonDepths,
 	to: ancientSewers
 };
 
 export const rampartsToBridge: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: ramparts,
 	to: blackBridge
 };
 
 export const rampartsToCrypt: ExitData = {
-	requiresCells: 3,
+	cellsNeeded: 3,
 	from: ramparts,
 	to: insufferableCrypt
 }
 
 export const ossuaryToBridge: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: ossuary,
 	to: blackBridge
 };
 
 export const ancientSewerToCrypt: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: ancientSewers,
 	to: insufferableCrypt
 };
 
 export const bridgeToStiltVillage: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: blackBridge,
 	to: stiltVillage
 };
 
 export const bridgeToSanctuary: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: blackBridge,
 	to: slumberingSanctuary
 };
 
 export const cryptToSanctuary: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: insufferableCrypt,
 	to: slumberingSanctuary
 };
 
 export const cryptToGraveyard: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: insufferableCrypt,
 	to: graveyard
 };
 
 export const stiltVillageToClockTower: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: stiltVillage,
 	to: clockTower
 };
 
 export const stiltVillageToSepulcher: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: stiltVillage,
 	to: forgottenSepulcher
 };
 
 export const sanctuaryToClockTower: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: slumberingSanctuary,
 	to: clockTower
 };
 
 export const sanctuaryToSepulcher: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: slumberingSanctuary,
 	to: forgottenSepulcher
 };
 
 export const sanctuaryToCavern: ExitData = {
-	requiresCells: 2,
+	cellsNeeded: 2,
 	from: slumberingSanctuary,
 	to: cavern
 };
 
 export const graveyardToSepulcher: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: graveyard,
 	to: forgottenSepulcher
 };
 
 export const graveyardToCavern: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: graveyard,
 	to: cavern
 };
 
 export const clockTowerToClockRoom: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: clockTower,
 	to: clockRoom
 };
 
 export const sepulcherToClockRoom: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: forgottenSepulcher,
 	to: clockRoom
 };
 
 export const sepulcherToGuardiansHaven: ExitData = {
-	requiresCells: 2,
+	cellsNeeded: 2,
 	from: forgottenSepulcher,
 	to: guardiansHaven
 };
 
 export const cavernToGuardiansHaven: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: cavern,
 	to: guardiansHaven
 };
 
 export const clockRoomToCastle: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: clockRoom,
 	to: highPeakCastle
 };
 
 export const guardiansHavenToCastle: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: guardiansHaven,
 	to: highPeakCastle
 };
 
 export const castleToThroneRoom: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: highPeakCastle,
 	to: throneRoom
 };
 
 export const throneRoomToAstrolab: ExitData = {
-	requiresCells: 5,
+	cellsNeeded: 5,
 	from: throneRoom,
 	to: astrolab
 };
 
 export const astrolabToObservatory: ExitData = {
-	requiresCells: 0,
+	cellsNeeded: 0,
 	from: astrolab,
 	to: observatory
 };

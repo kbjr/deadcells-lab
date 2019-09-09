@@ -1,0 +1,257 @@
+
+:root {
+	font-size: 1.2vw;
+
+	--color-background: #101524;
+	--color-red-one: #d1394e;
+	--color-red-two: #cd2f46;
+	--color-red-three: #a40239;
+	--color-red-four: #832154;
+	--color-yellow-one: #f9cf87;
+	--color-pale-blue: #dffffe;
+	--color-white: #ffffff;
+}
+
+@font-face {
+	font-family: 'ATCKrueger';
+	font-weight: bold;
+	src: url('/fonts/ATCKrueger-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'ATCKrueger';
+	font-weight: thin;
+	src: url('/fonts/ATCKrueger-Thin.woff2') format('woff2');
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
+
+html {
+	height: 100vh;
+	min-height: 100vh;
+}
+
+body {
+	min-height: 100vh;
+}
+
+.wrapper {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	background: var(--color-background);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+	font-family: ATCKrueger, sans-serif;
+	font-weight: bold;
+	margin: 0;
+	color: var(--color-red-three);
+}
+
+h1 {
+	color: var(--color-white);
+	font-size: 3rem;
+}
+	
+	h1 .subheading {
+		display: inline-block;
+		margin-left: 1rem;
+		font-family: inherit;
+		color: var(--color-red-three);
+	}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 2.2rem;
+}
+
+h4 {
+	font-size: 1.8rem;
+}
+
+p {
+	color: var(--color-yellow-one);
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.2rem;
+}
+
+small {
+	font-size: 0.8rem;
+	color: var(--color-white);
+}
+
+a {
+	color: var(--color-red-two);
+	text-decoration: none;
+}
+
+
+
+
+/* Header */
+
+header {
+	height: 5rem;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex: 0 0 5rem;
+}
+
+	header h1 {
+		flex: 1 0 auto;
+	}
+
+	header ko-fi-button {
+		flex: 0 0 auto;
+		margin: 0.5rem;
+		display: block;
+	}
+
+
+
+
+/* Navigation */
+
+nav {
+	flex: 0 0 30vw;
+	padding-top: 0.5rem;
+	padding-right: 100px;
+}
+	
+	nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	nav li {
+		flex: 0 0 auto;
+	}
+
+	nav a {
+		font-size: 2rem;
+		font-weight: bold;
+		color: var(--color-white);
+		font-family: ATCKrueger, sans-serif;
+	}
+
+
+
+/* Content */
+
+dc-app {
+	display: block;
+	flex: 1 0 auto;
+}
+
+
+
+
+/* Footer */
+
+footer {
+	height: 2rem;
+	flex: 0 0 2rem;
+	padding: 0 1rem;
+}
+
+
+
+
+/* Home Page */
+
+dc-page-home {
+	display: block;
+	margin: auto;
+	padding: 100px 0;
+	max-width: 800px;
+}
+
+	dc-page-home .logo {
+		max-width: 400px;
+		display: block;
+		margin: auto;
+	}
+
+	dc-page-home p {
+		padding: 1rem;
+	}
+
+
+
+/* Routes Page */
+
+dc-page-routes {
+	display: block;
+	padding: 5vh 10vw;
+}
+
+
+
+
+/* Items Page */
+
+dc-page-items {
+	display: block;
+	margin: auto;
+	padding: 100px 0;
+	max-width: 800px;
+}
+
+	dc-page-items .logo {
+		max-width: 400px;
+		display: block;
+		margin: auto;
+	}
+
+	dc-page-items p {
+		padding: 1rem;
+	}
+
+
+
+
+/* Builds Page */
+
+dc-page-builds {
+	display: block;
+	margin: auto;
+	padding: 100px 0;
+	max-width: 800px;
+}
+
+	dc-page-builds .logo {
+		max-width: 400px;
+		display: block;
+		margin: auto;
+	}
+
+	dc-page-builds p {
+		padding: 1rem;
+	}
+
+
+

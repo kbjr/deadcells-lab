@@ -1,0 +1,32 @@
+
+@media (max-width: 800px) {
+	:root {
+		font-size: 3.5vw;
+	}
+
+	header {
+		display: block;
+		text-align: center;
+		height: 13rem;
+	}
+
+		header ko-fi-button {
+			margin: 2rem auto 1rem;
+		}
+
+	nav {
+		padding-right: 0;
+	}
+
+	dc-page-home {
+		/**/
+	}
+
+		dc-page-home .logo {
+			max-width: 50vw;
+		}
+
+	h2, h3, h4 {
+		text-align: center;
+	}
+}
