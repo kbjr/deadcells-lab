@@ -1,11 +1,12 @@
 
-import { Biome } from './biome';
+import { Biome, Exit } from './biome';
 import { Difficulty } from '../data/difficulties';
 import { ScrollCount } from './scroll-count';
 import { prisonersQuarters, biomes } from '../biomes';
 
 export class Route {
 	public readonly biomes: Biome[] = [ prisonersQuarters ];
+	public readonly biomeSet: Set<Biome> = new Set([ prisonersQuarters ]);
 	public difficulty: Difficulty = Difficulty.Normal;
 
 	/**
@@ -19,7 +20,12 @@ export class Route {
 	 * 
 	 */
 	public setRoute(biomes: Biome[]) {
-		// 
+		this.biomes.splice(0, this.biomes.length);
+
+		biomes.forEach((biome) => {
+			this.biomes.push(biome);
+			this.biomeSet.add(biome);
+		});
 	}
 
 	/**
@@ -99,6 +105,29 @@ export class Route {
 	}
 
 	/**
+	 * Checks if a given exit is used in the route
+	 *
+	 * @param exit The exit to check for
+	 */
+	public hasExit(exit: Exit) {
+		for (let i = 0; i < this.biomes.length; i++) {
+			const biome = this.biomes[i];
+
+			if (exit.from === biome) {
+				const next = this.biomes[i + 1];
+
+				if (exit.to === next) {
+					return true;
+				}
+
+				return false;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns a serialized string representing this route
 	 */
 	public serialize() {
@@ -117,9 +146,11 @@ export class Route {
 
 		this.selectDifficulty(parseInt(difficulty, 10));
 		
-		ids.split(',').forEach((id) => {
-			this.selectBiome(biomes[id]);
+		const route = ids.split(',').map((id) => {
+			return biomes[id];
 		});
+
+		this.setRoute(route);
 	}
 
 	/**

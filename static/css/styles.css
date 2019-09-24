@@ -30,6 +30,7 @@ body {
 	padding: 0;
 	border: 0;
 	outline: 0;
+	background: var(--color-background);
 }
 
 html {
@@ -205,9 +206,316 @@ dc-page-home {
 /* Routes Page */
 
 dc-page-routes {
-	display: block;
-	padding: 5vh 10vw;
+	display: flex;
+	padding: 5vh 5vw;
+	flex-direction: row;
+	flex-wrap: nowrap;
 }
+	
+	dc-page-routes .biome-flowchart {
+		/* Dimensions of each box */
+		--biome-width: 30%;
+		--biome-height: 12rem;
+
+		/* Vertical space between rows */
+		--biome-vert-padding: 10vh;
+
+		/* CSS left value for a centered box */
+		--biome-center: calc((100% - var(--biome-width)) / 2);
+
+		/* CSS left values for left/right box in a 2 column row */
+		--biome-two-col-left: calc((100% - (var(--biome-width) * 2)) / 3);
+		--biome-two-col-right: calc(100% - var(--biome-two-col-left) - var(--biome-width));
+
+		/* CSS left values for left/right box in a 3 column row */
+		--biome-three-col-left: calc((100% - (var(--biome-width) * 3)) / 4);
+		--biome-three-col-right: calc(100% - var(--biome-three-col-left) - var(--biome-width));
+
+		/* Top position for the first box (top margin) */
+		--biome-first-row: 1vh;
+
+		/* Total height of each row */
+		--biome-row-height: calc(var(--biome-height) + var(--biome-first-row) + var(--biome-vert-padding));
+
+		flex: 0 0 80%;
+		position: relative;
+
+		/* 13 here is number of rows + 1 for padding */
+		height: calc(var(--biome-first-row) + (var(--biome-height) + var(--biome-vert-padding)) * 13);
+	}
+
+		dc-page-routes .biome-flowchart,
+		dc-page-routes .biome-flowchart * {
+			user-select: none;
+		}
+
+		dc-page-routes dc-biome-box {
+			display: block;
+			width: var(--biome-width);
+			height: var(--biome-height);
+			padding: 0.5rem;
+			position: absolute;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+			dc-page-routes dc-biome-box[in-route] {
+				background: rgba(255, 255, 255, 0.2);
+				border: 2px solid var(--color-white);
+			}
+
+	/* First row */
+
+		dc-page-routes #the-prisoners-quarters {
+			top: var(--biome-first-row);
+			left: var(--biome-center);
+		}
+
+	/* Second row */
+
+		dc-page-routes #the-promenade-of-the-condemned {
+			top: calc(var(--biome-row-height) * 1 + var(--biome-first-row));
+			left: var(--biome-two-col-left);
+		}
+
+		dc-page-routes #the-toxic-sewers {
+			top: calc(var(--biome-row-height) * 1 + var(--biome-first-row));
+			left: var(--biome-two-col-right);
+		}
+
+	/* Third row */
+
+		dc-page-routes #prison-depths {
+			top: calc(var(--biome-row-height) * 2 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+	/* Fourth row */
+
+		dc-page-routes #ossuary {
+			top: calc(var(--biome-row-height) * 3 + var(--biome-first-row));
+			left: var(--biome-three-col-left);
+		}
+
+		dc-page-routes #ramparts {
+			top: calc(var(--biome-row-height) * 3 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+		dc-page-routes #ancient-sewers {
+			top: calc(var(--biome-row-height) * 3 + var(--biome-first-row));
+			left: var(--biome-three-col-right);
+		}
+
+	/* Fifth row */
+
+		dc-page-routes #black-bridge {
+			top: calc(var(--biome-row-height) * 4 + var(--biome-first-row));
+			left: var(--biome-two-col-left);
+		}
+
+		dc-page-routes #insufferable-crypt {
+			top: calc(var(--biome-row-height) * 4 + var(--biome-first-row));
+			left: var(--biome-two-col-right);
+		}
+
+	/* Sixth row */
+
+		dc-page-routes #stilt-village {
+			top: calc(var(--biome-row-height) * 5 + var(--biome-first-row));
+			left: var(--biome-three-col-left);
+		}
+
+		dc-page-routes #slumbering-sanctuary {
+			top: calc(var(--biome-row-height) * 5 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+		dc-page-routes #graveyard {
+			top: calc(var(--biome-row-height) * 5 + var(--biome-first-row));
+			left: var(--biome-three-col-right);
+		}
+
+	/* Seventh row */
+
+		dc-page-routes #clock-tower {
+			top: calc(var(--biome-row-height) * 6 + var(--biome-first-row));
+			left: var(--biome-three-col-left);
+		}
+
+		dc-page-routes #forgotten-sepulcher {
+			top: calc(var(--biome-row-height) * 6 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+		dc-page-routes #cavern {
+			top: calc(var(--biome-row-height) * 6 + var(--biome-first-row));
+			left: var(--biome-three-col-right);
+		}
+
+	/* Eighth row */
+
+		dc-page-routes #clock-room {
+			top: calc(var(--biome-row-height) * 7 + var(--biome-first-row));
+			left: var(--biome-two-col-left);
+		}
+
+		dc-page-routes #guardians-haven {
+			top: calc(var(--biome-row-height) * 7 + var(--biome-first-row));
+			left: var(--biome-two-col-right);
+		}
+
+	/* Nineth row */
+
+		dc-page-routes #high-peak-castle {
+			top: calc(var(--biome-row-height) * 8 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+	/* Tenth row */
+
+		dc-page-routes #throne-room {
+			top: calc(var(--biome-row-height) * 9 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+	/* Eleventh row */
+
+		dc-page-routes #astrolab {
+			top: calc(var(--biome-row-height) * 10 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+	/* Twelth row */
+
+		dc-page-routes #observatory {
+			top: calc(var(--biome-row-height) * 11 + var(--biome-first-row));
+			left: var(--biome-center);
+		}
+
+	/* Exit lines */
+
+		dc-page-routes dc-route-line {
+			opacity: 0.3;
+			transition: opacity 0.25s linear;
+			pointer-events: none;
+		}
+
+		dc-page-routes dc-route-line.color-1 {
+			/*color: var(--color-red-three);*/
+			color: var(--color-yellow-one);
+		}
+
+		dc-page-routes dc-route-line.color-2 {
+			color: var(--color-yellow-one);
+		}
+
+		dc-page-routes dc-route-line.color-3 {
+			color: var(--color-yellow-one);
+			/*color: var(--color-pale-blue);*/
+		}
+
+		dc-page-routes dc-route-line[in-route] {
+			opacity: 1;
+			z-index: 10;
+			/*color: var(--color-white);*/
+			color: var(--color-red-three);
+		}
+
+		.route-lines:not([hovered-biome]) dc-route-line {
+			/**/
+		}
+
+		/* Non-hovered biome lines */
+		.route-lines[hovered-biome='the-prisoners-quarters'] dc-route-line:not(.the-prisoners-quarters),
+		.route-lines[hovered-biome='the-promenade-of-the-condemned'] dc-route-line:not(.the-promenade-of-the-condemned),
+		.route-lines[hovered-biome='the-toxic-sewers'] dc-route-line:not(.the-toxic-sewers),
+		.route-lines[hovered-biome='prison-depths'] dc-route-line:not(.prison-depths),
+		.route-lines[hovered-biome='ossuary'] dc-route-line:not(.ossuary),
+		.route-lines[hovered-biome='ramparts'] dc-route-line:not(.ramparts),
+		.route-lines[hovered-biome='ancient-sewers'] dc-route-line:not(.ancient-sewers),
+		.route-lines[hovered-biome='black-bridge'] dc-route-line:not(.black-bridge),
+		.route-lines[hovered-biome='insufferable-crypt'] dc-route-line:not(.insufferable-crypt),
+		.route-lines[hovered-biome='stilt-village'] dc-route-line:not(.stilt-village),
+		.route-lines[hovered-biome='slumbering-sanctuary'] dc-route-line:not(.slumbering-sanctuary),
+		.route-lines[hovered-biome='graveyard'] dc-route-line:not(.graveyard),
+		.route-lines[hovered-biome='clock-tower'] dc-route-line:not(.clock-tower),
+		.route-lines[hovered-biome='forgotten-sepulcher'] dc-route-line:not(.forgotten-sepulcher),
+		.route-lines[hovered-biome='cavern'] dc-route-line:not(.cavern),
+		.route-lines[hovered-biome='clock-room'] dc-route-line:not(.clock-room),
+		.route-lines[hovered-biome='guardians-haven'] dc-route-line:not(.guardians-haven),
+		.route-lines[hovered-biome='high-peak-castle'] dc-route-line:not(.high-peak-castle),
+		.route-lines[hovered-biome='throne-room'] dc-route-line:not(.throne-room),
+		.route-lines[hovered-biome='astrolab'] dc-route-line:not(.astrolab),
+		.route-lines[hovered-biome='observatory'] dc-route-line:not(.observatory) {
+			opacity: 0.1;
+		}
+
+		/* Hovered biome lines */
+		.route-lines[hovered-biome='the-prisoners-quarters'] dc-route-line.the-prisoners-quarters,
+		.route-lines[hovered-biome='the-promenade-of-the-condemned'] dc-route-line.the-promenade-of-the-condemned,
+		.route-lines[hovered-biome='the-toxic-sewers'] dc-route-line.the-toxic-sewers,
+		.route-lines[hovered-biome='prison-depths'] dc-route-line.prison-depths,
+		.route-lines[hovered-biome='ossuary'] dc-route-line.ossuary,
+		.route-lines[hovered-biome='ramparts'] dc-route-line.ramparts,
+		.route-lines[hovered-biome='ancient-sewers'] dc-route-line.ancient-sewers,
+		.route-lines[hovered-biome='black-bridge'] dc-route-line.black-bridge,
+		.route-lines[hovered-biome='insufferable-crypt'] dc-route-line.insufferable-crypt,
+		.route-lines[hovered-biome='stilt-village'] dc-route-line.stilt-village,
+		.route-lines[hovered-biome='slumbering-sanctuary'] dc-route-line.slumbering-sanctuary,
+		.route-lines[hovered-biome='graveyard'] dc-route-line.graveyard,
+		.route-lines[hovered-biome='clock-tower'] dc-route-line.clock-tower,
+		.route-lines[hovered-biome='forgotten-sepulcher'] dc-route-line.forgotten-sepulcher,
+		.route-lines[hovered-biome='cavern'] dc-route-line.cavern,
+		.route-lines[hovered-biome='clock-room'] dc-route-line.clock-room,
+		.route-lines[hovered-biome='guardians-haven'] dc-route-line.guardians-haven,
+		.route-lines[hovered-biome='high-peak-castle'] dc-route-line.high-peak-castle,
+		.route-lines[hovered-biome='throne-room'] dc-route-line.throne-room,
+		.route-lines[hovered-biome='astrolab'] dc-route-line.astrolab,
+		.route-lines[hovered-biome='observatory'] dc-route-line.observatory {
+			opacity: 0.7;
+		}
+
+	dc-page-routes .details {
+		flex: 0 0 20%;
+	}
+
+		dc-page-routes .details h3 {
+			color: var(--color-white);
+		}
+
+		dc-page-routes .details > aside {
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 0.75rem;
+			padding: 0.75rem;
+			position: sticky;
+			top: 2rem;
+		}
+
+		dc-page-routes .details section:not(:last-of-type) {
+			padding-bottom: 3rem;
+		}
+
+		dc-page-routes table#route-scrolls {
+			color: var(--color-white);
+			font-size: 0.75rem;
+			text-align: center;
+		}
+
+			dc-page-routes table#route-scrolls th,
+			dc-page-routes table#route-scrolls td {
+				padding: 0.25rem;
+			}
+
+		dc-page-routes ol#route-biomes {
+			margin: 1rem;
+			padding: 0;
+			color: var(--color-white);
+			font-size: 0.75rem;
+		}
+
+			dc-page-routes ol#route-biomes li {
+				padding: 0.25rem 0;
+			}
 
 
 

@@ -26,6 +26,18 @@
 			max-width: 50vw;
 		}
 
+	dc-page-routes {
+		flex-direction: column;
+	}
+
+		dc-page-routes .biome-flowchart {
+			flex: 0 0 auto;
+		}
+
+		dc-page-routes .details {
+			flex: 0 0 auto;
+		}
+
 	h2, h3, h4 {
 		text-align: center;
 	}

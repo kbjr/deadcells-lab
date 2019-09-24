@@ -18,6 +18,8 @@ export class Biome {
 			return biomesByData.get(data);
 		}
 
+		biomesByData.set(data, this);
+
 		this.name = data.name;
 		this.isBoss = data.isBoss;
 		this.bossName = data.bossName;
@@ -65,13 +67,16 @@ export class Biome {
 			noCurse: { twoStat: scrolls.twoStat, threeStat: scrolls.threeStat }
 		};
 
-		// Add one three-stat to the true max for possible challenge room
-		count.trueMax.threeStat++;
+		// Add one three-stat to the true max for possible challenge room (unless this is a boss)
+		if (! this.data.isBoss) {
+			count.trueMax.threeStat++;
+		}
 
 		// Account for cursed chests
 		this.cursedChests.forEach((curse) => {
 			if (curse.cellsNeeded <= level) {
 				count.max.threeStat++;
+				count.trueMax.threeStat++;
 				
 				if (curse.chance === 100) {
 					count.unlucky.threeStat++;
@@ -129,6 +134,9 @@ export class Exit {
 		if (exitsByData.has(data)) {
 			return exitsByData.get(data);
 		}
+
+
+		exitsByData.set(data, this);
 
 		this.from = new Biome(data.from);
 		this.to = new Biome(data.to);

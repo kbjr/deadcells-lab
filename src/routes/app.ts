@@ -27,7 +27,7 @@ export class DeadCellsApp extends HTMLElement {
 		const query = new URLSearchParams(location.search);
 		const page = query.has(pageKey) ? query.get(pageKey) : defaultPage;
 
-		onLoad(() => this.renderRoute(page, query));
+		onLoad(() => this.renderPage(page, query));
 	}
 
 	private connectedCallback() {
@@ -58,7 +58,7 @@ export class DeadCellsApp extends HTMLElement {
 	 * @param page The new page to navigate to
 	 * @param values The new query string values
 	 */
-	public routeTo(page: string, values: { }) {
+	public navigateTo(page: string, values: { }) {
 		console.log('manual routing', { page, values });
 
 		const query = new URLSearchParams();
@@ -70,7 +70,7 @@ export class DeadCellsApp extends HTMLElement {
 		});
 
 		this.updateHistory('pushState', query);
-		this.renderRoute(page, query);
+		this.renderPage(page, query);
 	}
 
 	/**
@@ -98,7 +98,7 @@ export class DeadCellsApp extends HTMLElement {
 	 * @param page The name of the page
 	 * @param details Details of the page to be rendered for this route
 	 */
-	public registerRoute(page: string, details: Page) {
+	public registerPage(page: string, details: Page) {
 		this.pages[page] = details;
 	}
 
@@ -108,7 +108,7 @@ export class DeadCellsApp extends HTMLElement {
 	 * @param page The page to render
 	 * @param query The query string data to use
 	 */
-	private renderRoute(page: string, query: URLSearchParams) {
+	private renderPage(page: string, query: URLSearchParams) {
 		console.log('rendering route', { page, query });
 
 		this.page = page;
@@ -129,7 +129,7 @@ export class DeadCellsApp extends HTMLElement {
 		const query = new URLSearchParams(location.search);
 		const route = query.has(pageKey) ? query.get(pageKey) : defaultPage;
 
-		this.renderRoute(route, query);
+		this.renderPage(route, query);
 	};
 
 	/**
@@ -150,7 +150,7 @@ export class DeadCellsApp extends HTMLElement {
 				console.log('navigating local link', { page: query.get(pageKey) });
 
 				this.updateHistory('pushState', query);
-				this.renderRoute(query.get(pageKey), query);
+				this.renderPage(query.get(pageKey), query);
 			}
 		}
 	};

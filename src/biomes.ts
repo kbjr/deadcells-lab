@@ -69,3 +69,13 @@ export const biomes = [
 	astrolab,
 	observatory
 ];
+
+export const biomeId = (biome: Biome) => {
+	return biome.name.replace(/\s+/g, '-').replace(/'/g, '').toLowerCase();
+};
+
+export const biomesById: { [id: string]: Biome } = { };
+
+biomes.forEach((biome) => {
+	biomesById[biomeId(biome)] = biome;
+});
